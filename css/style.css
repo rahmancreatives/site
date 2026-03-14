@@ -325,3 +325,126 @@ button:hover {
         gap: 20px;
     }
 }
+
+/* Mobile Styles (max-width: 480px) */
+@media (max-width: 480px) {
+    h1 {
+        font-size: 28px;
+    }
+
+    h2 {
+        font-size: 24px;
+    }
+
+    .logo {
+        font-size: 24px;
+    }
+
+    .phone {
+        font-size: 16px;
+    }
+
+    nav {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    nav a {
+        width: 100%;
+        text-align: center;
+        padding: 12px 0;
+        font-size: 18px; /* Larger for easier tapping */
+        border-top: 1px solid rgba(255,255,255,0.1);
+    }
+
+    nav a:first-child {
+        border-top: none;
+    }
+
+    .hero {
+        padding: 30px 15px;
+    }
+
+    .contact-btn {
+        padding: 14px 20px;
+        font-size: 16px;
+        width: 100%;
+        text-align: center;
+    }
+
+    .nav-buttons {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    .nav-buttons button {
+        width: 100%;
+        margin: 5px 0;
+    }
+
+    .slideshow {
+        height: 250px;
+    }
+
+    .card {
+        width: 100%;
+        max-width: 320px;
+    }
+
+    .client-logos {
+        gap: 15px;
+    }
+
+    .client-logos img {
+        width: 80px;
+    }
+
+    .testimonial p {
+        font-size: 16px;
+    }
+
+    .portfolio-grid {
+        grid-template-columns: 1fr;
+        padding: 15px;
+    }
+
+    .whatsapp {
+        bottom: 15px;
+        right: 15px;
+        width: 55px;
+        height: 55px;
+        font-size: 26px;
+    }
+
+    form {
+        padding: 0 15px;
+    }
+
+    input, textarea, button {
+        font-size: 16px;
+        padding: 14px;
+    }
+}
+
+/* Small Mobile (max-width: 360px) */
+@media (max-width: 360px) {
+    h1 {
+        font-size: 24px;
+    }
+
+    .slideshow {
+        height: 200px;
+    }
+
+    .client-logos img {
+        width: 70px;
+    }
+
+    .whatsapp {
+        width: 50px;
+        height: 50px;
+        font-size: 24px;
+    }
+}
