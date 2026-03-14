@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+
+Allow: sitemap.xml
+Allow: sitemap.html
+Disallow: /admin/
+Disallow: /Login/
+
+Sitemap: https://rahmancreatives.github.io/site/sitemap.xml
+  
