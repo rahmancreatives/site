@@ -1,0 +1,138 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* Fallback for Ronzino (Uses a heavy, bold System font if you don't own Ronzino) */
+@font-face { font-family: 'Ronzino'; src: local('Montserrat'), local('Teko'), local('Orbitron'); font-weight: 800; font-display: swap; }
+
+:root {
+    --bg-deep: #0b131e;
+    --bg-gradient-start: #142b3e;
+    --text-main: #ffffff;
+    --text-muted: #8ba4b4;
+    --accent-cyan: #00d4ff;
+    --glass-bg: rgba(17, 30, 43, 0.3);
+    --glass-border: rgba(255, 255, 255, 0.08);
+    --neon-glow: 0 0 30px rgba(0, 212, 255, 0.3);
+    --font-display: 'Ronzino', 'Poppins', sans-serif;
+    --font-body: 'Poppins', sans-serif;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+    font-family: var(--font-body);
+    background-color: var(--bg-deep);
+    background-image: radial-gradient(circle at 30% 50%, var(--bg-gradient-start) 0%, var(--bg-deep) 70%);
+    color: var(--text-main);
+    overflow-x: hidden;
+}
+h1, h2, h3, h4, .logo { font-family: var(--font-display); letter-spacing: 1px; }
+
+/* --- Neon Glow Utilities --- */
+.glass-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+}
+.glow-text { color: white; text-shadow: 0 0 20px rgba(255, 255, 255, 0.2); }
+.neon-text { color: var(--accent-cyan); text-shadow: var(--neon-glow); }
+.btn-neon {
+    display: inline-block;
+    background: transparent;
+    color: var(--accent-cyan);
+    border: 1px solid var(--accent-cyan);
+    padding: 12px 32px;
+    border-radius: 30px;
+    font-weight: 600;
+    font-family: var(--font-body);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 10px rgba(0, 212, 255, 0.2);
+    text-transform: uppercase;
+    font-size: 0.9rem;
+}
+.btn-neon:hover { background: var(--accent-cyan); color: var(--bg-deep); box-shadow: var(--neon-glow); transform: translateY(-2px); text-decoration: none;}
+.btn-solid {
+    background: var(--accent-cyan); color: var(--bg-deep); border: 1px solid var(--accent-cyan);
+    padding: 12px 32px; border-radius: 30px; font-weight: 600; cursor: pointer;
+    transition: all 0.3s ease; box-shadow: var(--neon-glow); text-transform: uppercase; text-decoration: none;
+}
+.btn-solid:hover { box-shadow: 0 0 40px rgba(0, 212, 255, 0.6); transform: translateY(-2px); color: black; }
+
+/* --- Animated Background Glows --- */
+.glow-orb {
+    position: absolute; width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(0, 212, 255, 0.15), transparent 70%);
+    border-radius: 50%; filter: blur(80px); z-index: 0; pointer-events: none;
+    animation: floatGlow 10s infinite alternate ease-in-out;
+}
+.glow-orb.right { right: -100px; top: -50px; animation-delay: 2s; }
+.glow-orb.left { left: -100px; bottom: 50px; }
+@keyframes floatGlow {
+    0% { transform: translate(0, 0) scale(1); }
+    100% { transform: translate(30px, -30px) scale(1.2); }
+}
+
+/* --- Header --- */
+header {
+    position: fixed; top: 0; width: 100%; padding: 15px 5%; z-index: 1000;
+    background: rgba(11, 19, 30, 0.7); backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255,255,255,0.03);
+    display: flex; justify-content: space-between; align-items: center;
+}
+.logo { font-size: 1.8rem; font-weight: 900; color: white; }
+.logo span { color: var(--accent-cyan); text-shadow: var(--neon-glow); }
+.nav-links { display: flex; gap: 25px; list-style: none; }
+.nav-links a {
+    font-weight: 500; color: var(--text-muted); text-decoration: none; transition: 0.3s; position: relative;
+}
+.nav-links a:hover, .nav-links a.active { color: white; }
+.nav-links a::after {
+    content: ''; position: absolute; width: 0%; height: 2px; bottom: -5px; left: 0;
+    background: var(--accent-cyan); box-shadow: var(--neon-glow); transition: 0.3s;
+}
+.nav-links a:hover::after { width: 100%; }
+.contact-info-header { display: flex; align-items: center; gap: 15px; color: var(--text-muted); font-size: 0.9rem;}
+.menu-toggle { display: none; cursor: pointer; font-size: 1.5rem; color: white; }
+
+@media (max-width: 900px) {
+    .nav-links { display: none; flex-direction: column; position: absolute; top: 100%; left: 0; width: 100%; background: #0b131e; padding: 20px; border-bottom: 1px solid var(--accent-cyan); }
+    .nav-links.active { display: flex; }
+    .menu-toggle { display: block; }
+    .contact-info-header span { display: none; }
+}
+
+/* --- Global Elements --- */
+section { padding: 100px 5% 50px; position: relative; }
+.section-title { text-align: center; margin-bottom: 50px; position: relative; z-index: 10;}
+.section-title h2 { font-size: 3rem; margin-bottom: 10px; }
+.section-title p { color: var(--text-muted); font-size: 1.1rem; }
+
+/* Shimmering Image Placeholder */
+.img-placeholder {
+    background: linear-gradient(110deg, #1c2a39 30%, #2b3f53 50%, #1c2a39 70%);
+    background-size: 200% 100%;
+    animation: shimmer 3s infinite;
+    border-radius: 15px; width: 100%; height: 300px;
+    display: flex; align-items: center; justify-content: center;
+    color: #4b657b; font-weight: 500; border: 1px solid rgba(255,255,255,0.05);
+    position: relative; overflow: hidden;
+}
+.img-placeholder::before {
+    content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(0, 212, 255, 0.1), transparent);
+    animation: lightSweep 4s infinite;
+}
+@keyframes shimmer { 0% { background-position: -200% 0; } 100% { background-position: 200% 0; } }
+@keyframes lightSweep { 0% { left: -100%; } 100% { left: 100%; } }
+
+/* --- Footer --- */
+footer {
+    background: #080f18; padding: 40px 5%; border-top: 1px solid rgba(255,255,255,0.05);
+    display: flex; flex-wrap: wrap; gap: 30px; margin-top: 50px;
+}
+.footer-col { flex: 1; min-width: 200px; }
+.footer-col h4 { margin-bottom: 15px; font-size: 1.2rem; }
+.footer-col p, .footer-col a { color: var(--text-muted); display: block; margin-bottom: 8px; font-size: 0.9rem; text-decoration: none; }
+.footer-col a:hover { color: var(--accent-cyan); }
+.copyright { width: 100%; text-align: center; margin-top: 30px; color: #3b4b5a; font-size: 0.8rem; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 20px; }
