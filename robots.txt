@@ -6,5 +6,5 @@ Allow: sitemap.html
 Disallow: /admin/
 Disallow: /Login/
 
-Sitemap: https://rahmancreatives.github.io/site/sitemap.xml
+Sitemap: https://rahmancreatives.com/site/sitemap.xml
   
